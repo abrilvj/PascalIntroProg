@@ -13,3 +13,18 @@ begin
     
     GeneraListaInvertida := listaInvertida;
 end;
+
+procedure ReverseList(var list: tipoLista);
+var curr, prev, next: TipoLista;
+begin
+    prev := nil;
+    curr := list;
+    while curr <> nil do
+    begin
+        next := curr^.sig;
+        curr^.sig := prev;
+        prev := curr;
+        curr := next
+    end;
+    list := prev
+end; 
